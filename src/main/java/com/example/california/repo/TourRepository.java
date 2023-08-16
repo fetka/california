@@ -7,6 +7,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 
+import java.util.Optional;
+
 
 /**
  * Tour Repository Interface
@@ -42,4 +44,7 @@ public interface TourRepository extends PagingAndSortingRepository<Tour, Integer
 
     @RestResource(exported = false)
     long count();
+
+    @RestResource(exported = true)
+    Optional<Object> findById(int tourId);
 }
