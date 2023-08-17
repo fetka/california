@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -33,17 +32,13 @@ public interface TourPackageRepository extends CrudRepository<TourPackage, Strin
     @RestResource(exported = false)
     <S extends TourPackage> Iterable<S> saveAll(Iterable<S> iterable);
 
-
     @Override
-    @RestResource(exported = true)
+    @RestResource(exported = false)
     void deleteById(String s);
 
     @Override
     @RestResource(exported = false)
     void delete(TourPackage tourPackage);
-
-
-
 
     @Override
     @RestResource(exported = false)
@@ -52,11 +47,5 @@ public interface TourPackageRepository extends CrudRepository<TourPackage, Strin
     @Override
     @RestResource(exported = false)
     void deleteAll();
-
-    @Override
-    @RestResource(exported = true)
-    Iterable<TourPackage> findAll();
-
-
 }
 
